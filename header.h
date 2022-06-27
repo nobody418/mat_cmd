@@ -56,7 +56,7 @@ float *data() {
     try {
         // Recorre la string y convierte los numeros a datos
         while (pos != string::npos) {
-            num[i] = stof(sln.substr(0, pos + 1));
+            num[i] = stof(sln.substr(0, pos));
             sln.erase(0, pos + 1);
             pos = sln.find("+");
             i++;
