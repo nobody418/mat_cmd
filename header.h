@@ -15,6 +15,7 @@ void line_cmd();
 // Cuenta el numero de valores de ln
 void cont_val();
 
+// Extrae los valores numericos de ln
 float *data();
 
 void line_cmd() {
@@ -45,7 +46,21 @@ void cont_val() {
 }
 
 float *data() {
+    // Arreglo de los datos con tamano de num_val
     float *num = new float[num_val];
-    
+
+    // Copia de ln para realizar la lectura
+    string sln = ln;
+    int pos = sln.find("+");
+    int i = 0;
+
+    // Recorre la string y convierte los numeros a datos
+    while (pos != string::npos) {
+        num[i] = stof(sln.substr(0, pos + 1));
+        sln.erase(0, pos + 1);
+        pos = sln.find("+");
+        i++;
+    }
+    num[i] = stof(sln);
     return num;
 }
