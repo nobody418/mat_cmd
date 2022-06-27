@@ -1,7 +1,11 @@
 #include "header.h"
 
 int main() {
-    line_cmd();
-    cout << "Linea leida: " << ln << endl;
+    while (true) {
+        cout << ">> ";
+        line_cmd();
+        cout << num_val << endl;
+    }
+
     return 0;
 }
