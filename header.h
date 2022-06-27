@@ -53,14 +53,18 @@ float *data() {
     string sln = ln;
     int pos = sln.find("+");
     int i = 0;
+    try {
+        // Recorre la string y convierte los numeros a datos
+        while (pos != string::npos) {
+            num[i] = stof(sln.substr(0, pos + 1));
+            sln.erase(0, pos + 1);
+            pos = sln.find("+");
+            i++;
+        }
 
-    // Recorre la string y convierte los numeros a datos
-    while (pos != string::npos) {
-        num[i] = stof(sln.substr(0, pos + 1));
-        sln.erase(0, pos + 1);
-        pos = sln.find("+");
-        i++;
+        num[i] = stof(sln);
+    } catch (...) {
+        cout << "Error de ingreso\n";
     }
-    num[i] = stof(sln);
     return num;
 }

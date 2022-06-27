@@ -4,7 +4,9 @@ int main() {
     while (true) {
         cout << ">> ";
         line_cmd();
-        cout << num_val << endl;
+        if (!num_val){
+            continue;
+        }
         float *val = new float[num_val];
         val = data();
 
